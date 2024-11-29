@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie & TV Series Facts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            max-width: 700px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            color: #e50914;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .fact-box {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .fact-box:hover {
+            transform: scale(1.02);
+        }
+
+        .quote-icon {
+            position: absolute;
+            font-size: 1.5rem;
+            color: #e50914;
+            opacity: 0.5;
+        }
+
+        .fa-quote-left {
+            top: 1rem;
+            left: 1rem;
+        }
+
+        .fa-quote-right {
+            bottom: 1rem;
+            right: 1rem;
+        }
+
+        #generate-btn {
+            padding: 1rem 2rem;
+            background: #e50914;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+        }
+
+        #generate-btn:hover {
+            background: #f40612;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 9, 20, 0.4);
+        }
+
+        .decoration-corner {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23e50914"><path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"/></svg>') no-repeat center;
+            opacity: 0.1;
+        }
+
+        .top-left {
+            top: 0;
+            left: 0;
+        }
+
+        .top-right {
+            top: 0;
+            right: 0;
+            transform: rotate(90deg);
+        }
+
+        .bottom-left {
+            bottom: 0;
+            left: 0;
+            transform: rotate(-90deg);
+        }
+
+        .bottom-right {
+            bottom: 0;
+            right: 0;
+            transform: rotate(180deg);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #fact-display {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-film"></i> Movie & TV Facts <i class="fas fa-tv"></i></h1>
+        <div class="fact-box">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p id="fact-display">Click the button to discover an amazing movie or TV fact!</p>
+            <i class="fas fa-quote-right quote-icon"></i>
+        </div>
+        <button id="generate-btn"><i class="fas fa-random"></i> Generate Fact</button>
+    </div>
+    <div class="decoration-corner top-left"></div>
+    <div class="decoration-corner top-right"></div>
+    <div class="decoration-corner bottom-left"></div>
+    <div class="decoration-corner bottom-right"></div>
+
+    <script>
+        const movieTVFacts = [
+            "Friends was filmed in front of a live audience except for cliffhangers and special events.",
+            "The iconic roar of the MGM lion was actually a mix of tiger, dog and lion sounds.",
+            "The entire Lord of the Rings trilogy took 8 years to make.",
+            "Game of Thrones uses more petabytes of CGI than all Marvel movies combined.",
+            "Breaking Bad creator Vince Gilligan almost killed off Jesse Pinkman in Season 1.",
+            "The Office (US) was almost cancelled after its first season due to low ratings.",
+            "The crown worn in Black Panther was inspired by Isicholo, a Zulu married woman's hat.",
+            "Stranger Things creators, the Duffer Brothers, pitched the show to 15 networks before Netflix accepted it.",
+            "The iconic Wilhelm scream sound effect has been used in over 400 films and TV series.",
+            "Netflix's 'Skip Intro' button saves viewers about 195 hours per year."
+        ];
+
+        const factDisplay = document.getElementById('fact-display');
+        const generateBtn = document.getElementById('generate-btn');
+
+        function generateRandomFact() {
+            factDisplay.style.opacity = '0';
+            
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * movieTVFacts.length);
+                factDisplay.textContent = movieTVFacts[randomIndex];
+                factDisplay.style.opacity = '1';
+            }, 300);
+        }
+
+        generateBtn.addEventListener('click', generateRandomFact);
+        Fact);
+    </script>
+</body>
+</html>
